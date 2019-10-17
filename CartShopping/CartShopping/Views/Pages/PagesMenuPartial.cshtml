@@ -1,0 +1,7 @@
+﻿@model IEnumerable<CartShopping.Models.ViewModels.Pages.PagesVM>
+
+  
+@foreach (var item in Model) {
+ <li> <a href="/@item.Slug">@item.Title</a></li>    
+}
+ 

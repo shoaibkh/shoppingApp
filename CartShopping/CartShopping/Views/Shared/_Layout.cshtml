@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CmsShoppingCart</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-topcancel">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button> 
+                <a href="/" class="navbar-brand">CmsShoppingCart</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"> 
+                    @Html.Action("PagesMenuPartial", "Pages");
+                </ul>
+                <ul class="navbar-collapse collapse navbar-right">
+                    @Html.Action("CartPartial","Cart")
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-xs-12 col-md-2">
+                @Html.Action("CategoryMenuPartial","Shop")
+            </div> 
+
+        @if(ViewBag.Sidebar == "Yes")
+        {
+            <div class="col-xs-12 col-md-7">
+                @RenderBody()
+            </div>
+            <div class="col-xs-12 col-md-3">
+                @Html.Action("SidebarPartial", "Pages")
+            </div>
+        }
+        else
+        {
+            <div class="col-xs-12 col-md-10">
+                @RenderBody()
+            </div>
+        }
+    </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

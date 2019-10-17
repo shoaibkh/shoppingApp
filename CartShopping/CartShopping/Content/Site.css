@@ -1,0 +1,41 @@
+﻿table.sorting tr:not(.home){
+    cursor:pointer;
+}
+.ui-state-highlight{
+    border: 1px dashed #ccc;
+}
+
+div.new-cat{
+    margin: 30px;
+    position: relative;
+}
+
+span.ajax-text{
+    display:none;
+}
+
+table.sorting.categories td{
+    padding: 20px !important;
+}
+
+.ajaxdivtd {
+    position:absolute;
+}
+
+span.loader{
+    display:none;
+}
+
+span.ajaxmsg{
+    background: green;
+    color:white;
+    padding:10px;
+    display:none;
+    position:absolute;
+    bottom:0;
+}
+
+.ajaxcart{
+    position:relative;
+    top:5px;
+}
