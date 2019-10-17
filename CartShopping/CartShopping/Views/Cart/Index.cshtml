@@ -1,42 +1,51 @@
 ﻿@model IEnumerable<CartShopping.Models.ViewModels.Cart.CartVM>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cart Details";
 }
 
-<h2>Index</h2>
+<h2>Cart Details</h2>
+
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+
+else
+{
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
+    <tr> 
         <th>
-            @Html.DisplayNameFor(model => model.ProductId)
+             Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductName)
+             Quantity
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+             Price
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            Image
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Total)
+
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Image)
+             Total
         </th>
-        <th></th>
+        <th>
+
+        </th>
+         
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductId)
-        </td>
+@foreach (var item in Model)
+{
+    <tr> 
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
@@ -45,19 +54,29 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
+        </td> 
+        <td>
+             <img src="/Images/Uploads/Products/@item.ProductId/Thumbd/@item.Image" />
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Total)
-        </td>
+            <a href="#" class="incrproduct" data-id="@item.ProductId">+</a>
+            <a href="#" class="decrproduct" data-id="@item.ProductId">-</a>
+            <a href="#" class="removeproduct" data-id="@item.ProductId">Remove</a> 
+        </td> 
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            $@Html.DisplayFor(modelItem => item.Total)
         </td>
     </tr>
 }
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>@ViewBag.GrandTotal</td>
+    </tr>
 
 </table>
+}
