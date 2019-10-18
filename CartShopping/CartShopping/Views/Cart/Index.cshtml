@@ -12,11 +12,7 @@
 }
 
 else
-{
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+{ 
 <table class="table">
     <tr> 
         <th>
@@ -49,21 +45,21 @@ else
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
-        <td>
+        <td class="qty@(item.ProductId)">
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
+            $@Html.DisplayFor(modelItem => item.Price)
         </td> 
         <td>
-             <img src="/Images/Uploads/Products/@item.ProductId/Thumbd/@item.Image" />
+             <img src="/Images/Uploads/Products/@item.ProductId/Thumbs/@item.Image" />
         </td>
         <td>
             <a href="#" class="incrproduct" data-id="@item.ProductId">+</a>
             <a href="#" class="decrproduct" data-id="@item.ProductId">-</a>
             <a href="#" class="removeproduct" data-id="@item.ProductId">Remove</a> 
         </td> 
-        <td>
+        <td class="total@(item.ProductId)">
             $@Html.DisplayFor(modelItem => item.Total)
         </td>
     </tr>
@@ -75,7 +71,7 @@ else
         <td></td>
         <td></td>
         <td></td>
-        <td>@ViewBag.GrandTotal</td>
+        <td class="grandtotal"><b>Grand Total</b> <span>$@ViewBag.GrandTotal</span> </td>
     </tr>
 
 </table>

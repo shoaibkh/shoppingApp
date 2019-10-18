@@ -28,7 +28,7 @@ namespace CartShopping.Controllers
                 total += item.Total;
             }
 
-            ViewBag.GrandtTotal = total;
+            ViewBag.GrandTotal = total;
             return View(cart);
         }
 
@@ -49,6 +49,9 @@ namespace CartShopping.Controllers
                     qty += item.Quantity;
                     price += item.Quantity * item.Price; 
                 }
+
+                model.Quantity = qty;
+                model.Price = price;
             }
             else
             {
