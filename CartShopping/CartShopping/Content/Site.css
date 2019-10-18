@@ -39,3 +39,7 @@ span.ajaxmsg{
     position:relative;
     top:5px;
 }
+
+.ib{
+    display:inline-block !important;
+}
